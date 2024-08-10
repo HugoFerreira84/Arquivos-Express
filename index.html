@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquivos Express</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <header class="bg-primary text-white py-3">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="mb-0">Arquivos Express</h1>
+                <nav>
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" onclick="showSection('qr-code')">Gerar QR Code</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" onclick="showSection('compress-images')">Comprimir
+                                Imagens</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#" onclick="showSection('compress-files')">Comprimir
+                                Arquivos</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div id="main">
+        <main>
+            <div class="content-qr">
+                <div class="row">
+                    <!-- Gerador de QR Code -->
+                    <section id="qrcode-generator" class="content-section hidden">
+                        <div>
+                            <h2>Gerador de QR Code</h2>
+                            <input type="text" id="qrcode-text" placeholder="Digite o texto ou URL">
+                            <input type="file" id="qrcode-image" accept="image/*">
+                            <button onclick="generateQRCode()">Gerar QR Code</button>
+                            <div id="qrcode"></div>
+                        </div>
+                    </section>
+
+                    <!-- Conversor de Arquivos -->
+                    <section id="file-converter" class="content-section hidden">
+                        <div>
+                            <h2>Conversor de Arquivos</h2>
+                            <select id="file-format" style="margin-bottom: 20px;">
+                                <option value="pdf">PDF</option>
+                                <option value="png">PNG</option>
+                                <option value="jpg">JPG</option>
+                            </select>
+                            <input type="file" id="file-input">
+                            <button onclick="convertFile()">Converter Arquivo</button>
+                        </div>
+                    </section>
+
+                    <!-- Compressor de Arquivos -->
+                    <section id="file-compressor" class="content-section">
+                        <div>
+                            <h2>Compactador de Arquivos</h2>
+                            <input type="file" id="compress-file-input">
+                            <input type="text" id="file-input" style="display: none;">
+                            <button onclick="compressFile()">Compactar Arquivo</button>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+
+            <!--Cards Informativos-->
+            <section id="tech-cards" class="content-section">
+                <div>
+                    <h2 class="text-center text-white">Últimas Tendências em Tecnologia</h2>
+                    <div class="card-container">
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" alt="IA">
+                            <h3>Inteligência Artificial</h3>
+                            <p>A IA está transformando indústrias, desde automação até atendimento ao cliente. Saiba
+                                mais
+                                sobre como essa tecnologia está moldando o futuro.</p>
+                            <a href="#" class="card-link">Leia mais</a>
+                        </div>
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" alt="Blockchain">
+                            <h3>Blockchain</h3>
+                            <p>A tecnologia Blockchain vai além das criptomoedas. Veja como ela está revolucionando a
+                                segurança e transparência de transações.</p>
+                            <a href="#" class="card-link">Leia mais</a>
+                        </div>
+                        <div class="card">
+                            <img src="https://via.placeholder.com/150" alt="5G">
+                            <h3>5G e Conectividade</h3>
+                            <p>A rede 5G está trazendo velocidades de internet sem precedentes. Descubra o que isso
+                                significa para o futuro da conectividade global.</p>
+                            <a href="#" class="card-link">Leia mais</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Seção de Fotos e textos-->
+            <section id="tech-insights" class="content-section">
+                <div>
+                    <h2 class="text-center text-white">Insights Tecnológicos</h2>
+                    <div class="insight-container">
+                        <div class="insight">
+                            <img src="https://via.placeholder.com/400x200" alt="Big Data">
+                            <div class="insight-text">
+                                <h3>O Poder do Big Data</h3>
+                                <p>Big Data está permitindo que as empresas tomem decisões mais informadas com base em
+                                    vastas quantidades de dados. Descubra como essa tecnologia está sendo usada para
+                                    transformar mercados.</p>
+                            </div>
+                        </div>
+                        <div class="insight">
+                            <img src="https://via.placeholder.com/400x200" alt="Big Data">
+                            <div class="insight-text">
+                                <h3>O Poder do Big Data</h3>
+                                <p>Big Data está permitindo que as empresas tomem decisões mais informadas com base em
+                                    vastas quantidades de dados. Descubra como essa tecnologia está sendo usada para
+                                    transformar mercados.</p>
+                            </div>
+                        </div>
+                        <div class="insight">
+                            <img src="https://via.placeholder.com/400x200" alt="Computação Quântica">
+                            <div class="insight-text">
+                                <h3>Computação Quântica</h3>
+                                <p>A computação quântica promete resolver problemas que os computadores tradicionais não
+                                    conseguem. Entenda o impacto potencial dessa tecnologia emergente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--Mini forum-->
+            <section id="tech-forum" class="content-section">
+                <h2 class="text-center text-white" >Fórum de Discussão Tecnológica</h2>
+               <div class="row">
+                <div class="forum">
+                    <div class="forum-container">
+                        <div class="forum-post">
+                            <h3>O Futuro da Inteligência Artificial</h3>
+                            <p>Quais são os maiores desafios e oportunidades na implementação de IA em diferentes
+                                setores?</p>
+                            <a href="#" class="forum-link">Leia a discussão</a>
+                        </div>
+                        <div class="forum-post">
+                            <h3>Blockchain: Além das Criptomoedas</h3>
+                            <p>Como o Blockchain pode ser usado para melhorar a segurança em transações digitais?</p>
+                            <a href="#" class="forum-link">Leia a discussão</a>
+                        </div>
+                        <div class="forum-post">
+                            <h3>5G e as Cidades Inteligentes</h3>
+                            <p>De que maneira a tecnologia 5G vai transformar as cidades em ambientes mais inteligentes
+                                e conectados?</p>
+                            <a href="#" class="forum-link">Leia a discussão</a>
+                        </div>
+                    </div>
+                </div>
+               </div>
+            </section>
+
+
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Sobre Nós</h3>
+                    <p>Este site oferece ferramentas gratuitas para gerar QR Codes personalizados, converter e compactar
+                        arquivos. Nosso objetivo é facilitar a vida digital de nossos usuários com soluções simples e
+                        eficazes.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Suporte</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section social">
+                    <h3>Siga-nos</h3>
+                    <p>Conecte-se conosco nas redes sociais!</p>
+                    <div class="social-icons">
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter"></a>
+                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png"
+                                alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contato</h3>
+                    <p>Email: suporte@exemplo.com</p>
+                    <p>Telefone: (11) 1234-5678</p>
+                    <p>Endereço: Rua Exemplo, 123, Cidade, Estado</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Gerador de QR Code e Conversor de Arquivos | Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
